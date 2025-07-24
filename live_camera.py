@@ -3,9 +3,8 @@ import cv2
 import numpy as np
 import struct
 
-# Configuration
-HOST = ''  # Listen on all interfaces (use '0.0.0.0' or '' for all)
-PORT = 8080  # Use the same port as your Android sender
+HOST = ''  
+PORT = 8080  
 
 # Create socket
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -21,7 +20,7 @@ try:
     payload_size = struct.calcsize(">L")
 
     while True:
-        # Receive message length first
+
         while len(data) < payload_size:
             packet = conn.recv(4096)
             if not packet:
